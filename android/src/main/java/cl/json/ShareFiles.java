@@ -155,11 +155,12 @@ public class ShareFiles
                     e.printStackTrace();
                 }
             } else if(this.isLocalFile(uri)) {
-                if (uri.getPath() != null) {
+                Uri uri1 = Uri.fromFile(new File(RNSharePathUtil.getPathFromUri(reactContext, uri)));
+                if (uri1.getPath() != null) {
                     if (filenames.size() >= uriIndex + 1) {
-                        finalUris.add(RNSharePathUtil.compatUriFromFile(reactContext, new File(uri.getPath(), filenames.get(uriIndex))));
+                        finalUris.add(RNSharePathUtil.compatUriFromFile(reactContext, new File(uri1.getPath(), filenames.get(uriIndex))));
                     } else {
-                        finalUris.add(RNSharePathUtil.compatUriFromFile(reactContext, new File(uri.getPath())));
+                        finalUris.add(RNSharePathUtil.compatUriFromFile(reactContext, new File(uri1.getPath())));
                     }
                 }
             }

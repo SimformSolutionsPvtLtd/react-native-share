@@ -124,7 +124,7 @@ public class ShareFile {
                 e.printStackTrace();
             }
         } else if(this.isLocalFile()) {
-            Uri uri = Uri.parse(this.url);
+            Uri uri = Uri.fromFile(new File(RNSharePathUtil.getPathFromUri(reactContext, this.uri)));
             if (uri.getPath() == null) {
                 return null;
             }
